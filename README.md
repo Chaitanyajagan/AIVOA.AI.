@@ -99,8 +99,6 @@ The following flowchart describes the high-level components and data paths acros
 
 ### 📊 System Flowchart
 
-![System Architecture](file:///C:/aivoa/docs/architecture_diagram.png)
-
 ```mermaid
 graph TD
     subgraph Frontend [React + Redux UI]
@@ -145,8 +143,6 @@ The AI agent tracks a state definition containing the conversational message his
 When a payload hits `/api/chat`, the LangGraph compilation triggers. The `Agent Node` runs the Groq LLM model (`gemma2-9b-it`). If the LLM determines that a database lookup or mutation is needed (e.g. querying HCPs, saving a log, or checking stock levels), it outputs a tool-call request. The graph conditionally routes to the `Tool Node` which executes the Python database functions before returning to the `Agent Node`. If no tool calls are needed, the final message is returned to the user.
 
 ### 🔄 Agent State Diagram
-
-![LangGraph State Machine](file:///C:/aivoa/docs/state_diagram.png)
 
 ```mermaid
 stateDiagram-v2
